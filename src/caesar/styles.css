@@ -51,9 +51,11 @@ main {
     display: flex;
     flex-direction: column;
     visibility: hidden;
+    position: absolute;
 }
 
 .outputActive {
+    position: static;
     visibility: visible;
     border: solid gray 0.5px;
     border-radius: 5px;
@@ -73,7 +75,10 @@ main {
     flex-direction: column;
     min-width: 85%;
     align-items: center;
-    padding: 10%;
+}
+
+.decrypter section {
+    margin: 10% 0;
 }
 
 #submit, #submit:focus {
