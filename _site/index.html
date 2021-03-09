@@ -10,19 +10,22 @@
     </head>
     <body>
 		<main>
-            <article>
-	<section class="wrapper">
+            <article class="decrypter">
+	<section class="formWrapper">
 		<h1>ROT Decrypter</h1>
-		<form action="/" id="decrypter" > 
+		<form action="/" id="decryptForm" > 
 			<label for="text">What do you want to decrypt?</label>
 			<textarea id="text"></textarea>
 			<label class="hidden" for="submit">Submit</label>
 			<input id="submit" type="submit" value="Submit!">
 		</form>
 	</section>
-	<section id="output">
-		<span></span>
-		<span></span>
+	<section id="output" class="output">
+		<label for="key">ROT-Key:</label>
+		<span id="key"></span>
+
+		<label for="dCodedText">Decrypted Text:</label>
+		<span id="dCodedText"></span>
 	</section>
 </article>
 		</main>

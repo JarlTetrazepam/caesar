@@ -1,13 +1,14 @@
 const submit = document.getElementById("submit")
 const text = document.getElementById("text")
-const form = document.getElementById("decrypter")
+const form = document.getElementById("decryptForm")
 const output = document.getElementById("output")
 console.log(output.children[0])
 
 form.addEventListener("submit", event => {
     event.preventDefault()
-    output.children[0].innerHTML = `ROT Key: ${decrypt(text.value)[0]}`
-    output.children[1].innerHTML = `Decrypted text: ${decrypt(text.value)[1]}`
+    output.children[1].innerHTML = `${decrypt(text.value)[0]}`
+    output.children[3].innerHTML = `${decrypt(text.value)[1]}`
+    output.classList.add("outputActive")
 })
 
 const decrypt = function(input) {
@@ -52,7 +53,7 @@ const dicComparison = (text) => {
         so this was the perfect outdoor experience for him. He posted all of his best pictures on social media, 
         and his friends were amazed by his breathtaking, panoramic shots.`.toLowerCase().replace(/\si\s/g, " ").replace(/[^\s\w]/g, "").replace(/[ ]+/g, " ").split(" ")
 
-    const matchingWords = text.replace(/[^\s\w]/g, "").replace(/[ ]+/g, " ").split(" ").filter(word => dic.includes(word))
+    const matchingWords = text.replace(/[^\s\w]/g, "").replace(/[ —]+/g, " ").split(" ").filter(word => dic.includes(word))
 
     console.log(matchingWords)
     if (matchingWords.length >= 3 || text.split("").length <= 3 && matchingWords.length) {
