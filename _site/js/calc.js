@@ -2,25 +2,28 @@ const submit = document.getElementById("submit")
 const text = document.getElementById("text")
 const form = document.getElementById("decrypter")
 const output = document.getElementById("output")
+console.log(output.children[0])
 
 form.addEventListener("submit", event => {
     event.preventDefault()
-    console.log(decrypt(text.value))
-    output.innerHTML = decrypt(text.value)
+    output.children[0].innerHTML = `ROT Key: ${decrypt(text.value)[0]}`
+    output.children[1].innerHTML = `Decrypted text: ${decrypt(text.value)[1]}`
 })
 
 const decrypt = function(input) {
-    const text = input.toLowerCase()
-
+    let text = input.toLowerCase().split("").join("")
+    console.log("Beginning test with:", text)
     for (let i = 0; i < 26; i++) {
-
+        console.log("currrent shift:", i)
         let decryptAttempt = text.replace(/[a-z]/g, letter => {
-            String.fromCharCode(((letter.charCodeAt(0) - 19 + i) % 26) + 97)
+            return String.fromCharCode(((letter.charCodeAt(0) - 19 + i) % 26) + 97)
         })
-
-        if(dicComparison(decryptAttempt)) return i, decryptAttempt
+        console.log("shifted:", decryptAttempt)
+        if(dicComparison(decryptAttempt)) return [i, decryptAttempt]
 
     }
+
+    return "no match found"
 
 }
 
@@ -49,10 +52,13 @@ const dicComparison = (text) => {
         so this was the perfect outdoor experience for him. He posted all of his best pictures on social media, 
         and his friends were amazed by his breathtaking, panoramic shots.`.toLowerCase().replace(/\si\s/g, " ").replace(/[^\s\w]/g, "").replace(/[ ]+/g, " ").split(" ")
 
-    const matchingWords =text.replace(/[^\s\w]/g, "").replace(/[ ]+/g, " ").split(" ").filter(word => dic.includes(word))
+    const matchingWords = text.replace(/[^\s\w]/g, "").replace(/[ ]+/g, " ").split(" ").filter(word => dic.includes(word))
 
-    if (matchingWords.length < 3) {
+    console.log(matchingWords)
+    if (matchingWords.length >= 3 || text.split("").length <= 3 && matchingWords.length) {
+        console.log("Match found")
         return true
     }
+    console.log("No match found")
     return false
 }

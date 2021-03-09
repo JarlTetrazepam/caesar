@@ -3,7 +3,8 @@ module.exports = function(config) {
     // file extensions to be added to output
     config.setTemplateFormats([
         "md",
-        "css"
+        "css",
+        "html",
     ])
 
     // for some godly unknown reason, 
