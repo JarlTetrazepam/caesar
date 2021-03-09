@@ -30,7 +30,7 @@ const decrypt = function(input) {
 
 const dicComparison = (text) => {
     const dic = 
-        `My name is. 
+        `My name is you. 
         Each day drive my kids to school. My daughter goes to a school that far from our house. 
         It takes minutes to get there. Then drive my son to his school. 
         close to my job. My daughter is in the sixth grade and my son is in the second. 
