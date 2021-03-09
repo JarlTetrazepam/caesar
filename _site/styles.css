@@ -52,16 +52,17 @@ main {
     flex-direction: column;
     visibility: hidden;
     position: absolute;
-}
-
-.outputActive {
-    position: static;
-    visibility: visible;
     border: solid gray 0.5px;
     border-radius: 5px;
     margin-top: 2em;
     width: 100%;
     hyphens: auto;
+}
+
+.outputActive {
+    position: static;
+    visibility: visible;
+    opacity: 1;
 }
 
 .output label {
@@ -94,12 +95,28 @@ main {
     transition: all 0.2s;
     align-self: flex-end;
     margin-top: 0.4em;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
 }
 
 #submit:hover {
     color: lightblue;
     background-color: blue;
     transition: all 0.2s;
+    box-shadow: 0.5px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    border-top: 0.1px gray solid;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer span {
+    margin: 0.4em;
 }
 
 @media only screen and (min-width: 600px) {
@@ -109,7 +126,39 @@ main {
     }
 
     .decrypter {
-        min-width: 75%;
+        min-width: 65%;
     }
+
+    #text {
+        min-height: 35vh;
+    }
+
+}
+
+@media only screen and (min-width: 600px) {
+
+    main {
+        
+    }
+
+    .decrypter {
+        min-width: 35%;
+        flex-direction: row;
+        width: 90%;
+    }
+
+    .output {
+        position: static;
+        opacity: 0;
+    }
+
+    .outputActive {
+        opacity: 1;
+    }
+
+    .decrypter section {
+        margin: 10% 0.75em;
+    }
+
 
 }
