@@ -1,0 +1,16 @@
+---
+layout: base.liquid
+title: ROT Decrypter
+---
+<article class="wrapper">
+	<h1>{{ title }}</h1>
+	<form action="/" id="decrypter" > 
+		<label for="text">What do you want to decrypt?</label>
+		<textarea id="text" rows="20" cols="60"></textarea>
+		<label class="hidden" for="submit">Submit</label>
+		<input id="submit" type="submit" value="Submit">
+	</form>
+	<section>
+		<span class="output"></span>
+	</section>
+</article>
