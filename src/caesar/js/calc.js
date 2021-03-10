@@ -2,7 +2,6 @@ const submit = document.getElementById("submit")
 const text = document.getElementById("text")
 const form = document.getElementById("decryptForm")
 const output = document.getElementById("output")
-console.log(output.children[0])
 
 form.addEventListener("submit", event => {
     event.preventDefault()
@@ -12,14 +11,16 @@ form.addEventListener("submit", event => {
 })
 
 const decrypt = function(input) {
-    let text = input.toLowerCase().split("").join("")
-    console.log("Beginning test with:", text)
+    let text = input.split("").join("")
+
     for (let i = 0; i < 26; i++) {
-        console.log("currrent shift:", i)
-        let decryptAttempt = text.replace(/[a-z]/g, letter => {
-            return String.fromCharCode(((letter.charCodeAt(0) - 19 + i) % 26) + 97)
+
+        let decryptAttempt = text.replace(/[a-z]/g, lowerLetter => {
+            return String.fromCharCode(((lowerLetter.charCodeAt(0) - 19 + i) % 26) + 97)
+        }).replace(/[A-Z]/g, upperLetter => {
+            return String.fromCharCode(((upperLetter.charCodeAt(0) - 13 + i) % 26) + 65)
         })
-        console.log("shifted:", decryptAttempt)
+
         if(dicComparison(decryptAttempt)) return [i, decryptAttempt]
 
     }
@@ -53,13 +54,10 @@ const dicComparison = (text) => {
         so this was the perfect outdoor experience for him. He posted all of his best pictures on social media, 
         and his friends were amazed by his breathtaking, panoramic shots.`.toLowerCase().replace(/\si\s/g, " ").replace(/[^\s\w]/g, "").replace(/[ ]+/g, " ").split(" ")
 
-    const matchingWords = text.replace(/[^\s\w]/g, "").replace(/[ —]+/g, " ").split(" ").filter(word => dic.includes(word))
+    const matchingWords = text.toLowerCase().replace(/[^\s\w]/g, "").replace(/[ —]+/g, " ").split(" ").filter(word => dic.includes(word))
 
-    console.log(matchingWords)
     if (matchingWords.length >= 3 || text.split("").length <= 3 && matchingWords.length) {
-        console.log("Match found")
         return true
     }
-    console.log("No match found")
     return false
 }
