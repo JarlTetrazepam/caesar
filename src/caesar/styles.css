@@ -108,12 +108,12 @@ main {
 footer {
     border-top: 0.1px gray solid;
     background-color: white;
-    position: fixed;
     bottom: 0;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 1em;
 }
 
 footer span {
