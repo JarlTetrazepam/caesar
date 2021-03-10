@@ -34,7 +34,7 @@ main {
     min-height: 50vh;
     margin: 0.6em 0;
     border-radius: 5px;
-    border: solid gray 0.5px;
+    border: solid blue 0.5px;
 }
 
 #text:focus {
@@ -52,7 +52,7 @@ main {
     flex-direction: column;
     visibility: hidden;
     position: absolute;
-    border: solid gray 0.5px;
+    border: solid blue 0.5px;
     border-radius: 5px;
     margin-top: 2em;
     width: 100%;
@@ -137,8 +137,12 @@ footer span {
 
 @media only screen and (min-width: 600px) {
 
-    main {
-        
+    #text {
+        border: 0.5px gray solid;
+    }
+
+    #text:focus {
+        border: 0.5px blue solid;
     }
 
     .decrypter {
@@ -150,6 +154,8 @@ footer span {
     .output {
         position: static;
         opacity: 0;
+        min-height: 35vh;
+        border: none;
     }
 
     .outputActive {
